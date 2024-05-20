@@ -1,0 +1,35 @@
+.margin-top{
+ margin-top: 60px;
+}
+@media (max-width: 228px) {
+    .margin-top {
+      margin-top: 100px;
+    }
+}
+
+.bandera{
+    width: 100px;
+    height: 80px;
+}
+
+.radio-tam{
+    width: 50px;
+    height: 50px;
+}
+
+.text-tam{
+    height: 100px;
+}
+
+.traducir{
+    background-color: blueviolet;
+    width:  60%;
+    color: aliceblue;
+    text-align: center;
+    border: 5px black solid;
+}
+
+.traducir:hover{
+    background-color: blue;
+    transition: 2s;
+}

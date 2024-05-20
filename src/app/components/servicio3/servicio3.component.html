@@ -1,0 +1,10 @@
+<div class="row margin-top text-center justify-content-center">
+    <button class="button obtener" (click)="obtenerMarcas()">Obtener Marcas</button>
+    <h1 class="bg-info">MARCAS DE AUTOS</h1>
+    <ul class="list-group">
+        <li *ngFor="let e of marcas">
+        <a (click)="obtenerModelos(e.id)" data-bs-toggle="modal" data-bs-target="#modal" class="list-group-item list-group-item-action activo" aria-current="true"> {{e.name}}</a>
+        </li>
+    </ul>
+    <app-modal [objetos]="modelos" [nombre]="nombre"></app-modal>
+</div>

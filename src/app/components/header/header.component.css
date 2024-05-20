@@ -1,0 +1,18 @@
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bg-nav{
+    color: aliceblue !important;
+    background-color: rgb(118, 89, 146);
+}
+
+.margin-left{
+    margin-left: 50px;
+}
+
+header{
+   border-bottom: 4px solid #000;
+}

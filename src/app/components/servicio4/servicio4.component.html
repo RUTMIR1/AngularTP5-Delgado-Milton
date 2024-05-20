@@ -1,0 +1,21 @@
+<div class="row margin-top text-center bg-morado">
+    <h2 class="bg-secondary">Ingrese el Nombre de su Musica</h2>
+    <form class="d-flex justify-content-center align-items-center mt-5">
+        <label for="nom">Nombre de Musica:</label>
+        <input type="text" name="nombre" id="nom" [(ngModel)]="nombre">
+        <button class="button activo" (click)="buscaMusica()">Buscar</button>
+    </form>
+</div>
+<div *ngIf="mostrar" class="row text-center bg-morado">
+    <h3 class="bg-secondary"> Previo De Musica:</h3>
+    <div class="text-center justify-content-center align-items-center mt-5">
+        <audio controls>
+          <source [src]="musica" type="audio/mpeg">
+          Tu navegador no soporta la etiqueta de audio.
+        </audio>
+    </div>
+</div>
+<div *ngIf="mostrar" class="row text-center bg-morado">
+    <h3 class="bg-secondary"> Musica Encontrada:</h3>
+    <iframe [src]="musicaUrl" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+</div>
