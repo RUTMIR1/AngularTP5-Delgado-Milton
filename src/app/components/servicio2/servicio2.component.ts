@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NoticiaService } from '../../services/noticia.service';
+import { concat, from, of } from 'rxjs';
+import { concatMap, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-servicio2',
@@ -22,10 +24,8 @@ export class Servicio2Component {
   obtenerNoticias():void{
     this.noticiaService.getNoticias().subscribe(
      (response)=>{
-      for(let e of response.homepageArticles[0].articles){
-        this.noticias.push(e);
-        this.obtenerDetalles(e.id, e);
-      }
+      this.noticias = response.homepageArticles[0].articles
+      this.obtenerDetalles(this.noticias);
       console.log(this.noticias);
       console.log(this.detalles);
      },
@@ -34,14 +34,22 @@ export class Servicio2Component {
      } 
     )
   }
-  obtenerDetalles(id:string, e:any):void{
-    this.noticiaService.getDetalles(id).subscribe(
-        (response)=>{
-          e.shortTitle = response.article.subTitle;
-        },
-        (error)=>{
-          console.log(error);
-        } 
-      )
+  obtenerDetalles(noticias:any[]):void{
+    from(noticias).pipe(
+      concatMap(( noticia, index)=>
+      this.noticiaService.getDetalles(noticia.id).pipe(
+        delay(250)
+      ))
+    ).subscribe(
+      (response)=>{
+        let noticia = this.noticias.find(noticia => noticia.id == response.articleId);
+        if(noticia != null){
+          noticia.shortTitle = response.article.subTitle;
+        }
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
   }  
 }

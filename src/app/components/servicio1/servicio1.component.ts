@@ -16,11 +16,14 @@ export class Servicio1Component {
   contenido:string;
   target:string;
   traduccion:string;
+  listaIdioma:any[];
   constructor(private translateService: TranslateService){
     this.texto = "";
     this.contenido = "";
     this.target = "";
     this.traduccion = "";
+    this.listaIdioma = [];
+    this.obtenerListaIdioma();
   }
 
   crearTraduccion(texto:string, contenido:string, target:string):void{
@@ -33,5 +36,24 @@ export class Servicio1Component {
         console.log(error);
       }
     );
+  }
+
+  obtenerListaIdioma():void{
+    this.translateService.getIdiomas().subscribe(
+      (response) => {
+        this.listaIdioma = response.data.languages;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  obtenerCodigo(nombre:string):string{  
+    for(let e of this.listaIdioma){
+      if(e.name == nombre){
+        nombre = e.language;
+      }
+    }
+    return nombre;
   }
 }

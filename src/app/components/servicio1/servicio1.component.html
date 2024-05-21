@@ -4,19 +4,19 @@
         <label for="a">
             <img class="bandera img-fluid" src="assets/img/esp.jpg" alt="bandera castellana">
         </label>
-        <input class="radio-tam" type="radio" name="esp" id="a" value="es" [(ngModel)]="contenido">
+        <input class="radio-tam" type="radio" name="esp" id="a" [value]="obtenerCodigo('español')" [(ngModel)]="contenido">
         <label for="b">
             <img class="bandera img-fluid" src="assets/img/eng.jpg" alt="bandera inglesa">
         </label>
-        <input class="radio-tam" type="radio" name="eng" id="b" value="en" [(ngModel)]="contenido">
+        <input class="radio-tam" type="radio" name="eng" id="b" [value]="obtenerCodigo('inglés')" [(ngModel)]="contenido">
         <label for="c">
             <img class="bandera img-fluid" src="assets/img/fr.jpg" alt="bandera francesa">
         </label>
-        <input class="radio-tam" type="radio" name="fran" id="c" value="fr" [(ngModel)]="contenido">
+        <input class="radio-tam" type="radio" name="fran" id="c" [value]="obtenerCodigo('francés')" [(ngModel)]="contenido">
         <label for="d">
             <img class="bandera img-fluid" src="assets/img/pt.png" alt="bandera portuguesa">
         </label>
-        <input class="radio-tam" type="radio" name="port" id="d" value="pt" [(ngModel)]="contenido">
+        <input class="radio-tam" type="radio" name="port" id="d" [value]="obtenerCodigo('Portugués')" [(ngModel)]="contenido">
     </form>
     <div class="form-floating">
         <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" [(ngModel)]="texto"></textarea>
@@ -27,19 +27,19 @@
         <label for="a">
             <img class="bandera img-fluid" src="assets/img/esp.jpg" alt="bandera castellana">
         </label>
-        <input class="radio-tam" type="radio" name="esp" id="a" value="es" [(ngModel)]="target">
+        <input class="radio-tam" type="radio" name="esp" id="a" [value]="obtenerCodigo('español')" [(ngModel)]="target">
         <label for="b">
             <img class="bandera img-fluid" src="assets/img/eng.jpg" alt="bandera inglesa">
         </label>
-        <input class="radio-tam" type="radio" name="eng" id="b" value="en" [(ngModel)]="target">
+        <input class="radio-tam" type="radio" name="eng" id="b" [value]="obtenerCodigo('inglés')" [(ngModel)]="target">
         <label for="c">
             <img class="bandera img-fluid" src="assets/img/fr.jpg" alt="bandera francesa">
         </label>
-        <input class="radio-tam" type="radio" name="fran" id="c" value="fr" [(ngModel)]="target">
+        <input class="radio-tam" type="radio" name="fran" id="c" [value]="obtenerCodigo('francés')" [(ngModel)]="target">
         <label for="d">
             <img class="bandera img-fluid" src="assets/img/pt.png" alt="bandera portuguesa">
         </label>
-        <input class="radio-tam" type="radio" name="port" id="d" value="pt" [(ngModel)]="target">
+        <input class="radio-tam" type="radio" name="port" id="d" [value]="obtenerCodigo('Portugués')" [(ngModel)]="target">
     </form>
     <button class="button mt-5 traducir" (click)="crearTraduccion(texto,contenido,target)">Traducir</button>
     <div class="bg-primary fs-2 mt-2"> {{traduccion}} </div>

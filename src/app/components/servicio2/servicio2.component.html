@@ -1,11 +1,19 @@
 <div class="row margin-top">
     <button class="button bg-danger" (click)="obtenerNoticias()">OBTENER LISTA</button>
-    <div *ngFor="let e of noticias" class="card" style="width: 18rem;">
-        <img [src]="e.mainMedia[0].original.url" class="card-img-top" [alt]="e.mainMedia[0].original.alt">
-        <div class="card-body">
-          <h5 class="card-title"> {{e.title}}</h5>
-          <p class="card-text"> {{e.shortTitle}} </p>
-          <a href="#" class="btn btn-primary">Detalles</a>
-        </div>
+    
+    <div class="col-9">
+      <div class="row">
+        <div *ngFor="let e of noticias" class="card col-xll-4 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <img [src]="e.mainMedia[0].original.url" class="card-img-top" [alt]="e.mainMedia[0].original.alt">
+          <div class="card-body">
+            <h5 class="card-title"> {{e.title}}</h5>
+            <p class="card-text"> {{e.shortTitle}} </p>
+            <a href="#" class="btn btn-primary">Detalles</a>
+          </div>
+      </div>
+    </div>
+   </div>
+    <div class="col-3">
+      <img src="assets/img/anuncio.jpg" alt="anuncio" class="anuncio img-fluid">
     </div>
 </div>
