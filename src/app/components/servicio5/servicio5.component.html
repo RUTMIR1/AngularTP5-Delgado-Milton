@@ -1,0 +1,22 @@
+
+<div class="row margin-top mt-5 bg-info">
+    <button class="button bg-primary w-100 mt-2" (click)="obtenerCodigoVoces()">obtener Codigos</button>
+    <label for="codi" class="mt-5">Seleccion el codigo: </label>
+    <select name="codigos" id="codi" [(ngModel)]="voz">
+        <option *ngFor="let e of codigoVoces" [value]="e.language_code">
+        {{e.language_name}} : {{e.language_code}}
+        </option>
+    </select>
+    <label for="tex" class="mt-5"> Escriba el texto</label>
+    <input type="text" name="texto" id="tex" [(ngModel)]="texto">
+    <button class="button bg-success mt-5" (click)="obtenerVoz()"> obtener Voz </button>
+    <button class="button button-primary mt-5" (click)="obtenerAudio()">
+        Generar audio
+    </button>
+    <div *ngIf="url!=null">
+        <audio controls>
+            <source [src]="url" type="audio/mpeg">
+            Tu navegador no soporta la etiqueta de audio.
+          </audio>
+    </div>
+</div>

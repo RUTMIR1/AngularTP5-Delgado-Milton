@@ -1,0 +1,48 @@
+<div class="row margin-top">
+    <label for="ip">Ingrese ip</label>
+    <input class="mt-5" type="text" name="ip" id="ip" [(ngModel)]="ip">
+    <button class="button button-primary" (click)="obtenerInformacion(ip)">obtener datos</button>
+</div>
+<div *ngIf="informacion != null" class="row">
+    <div class="card bg-primary" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title bg-success">Informacion de la ip</h5>
+          <div>
+            <p class="card-text bg-info"> Pais: {{informacion.country}} </p>
+          </div>
+          <div>
+            <p class="card-text bg-info"> Ciudad: {{informacion.city}}</p>
+          </div>
+          <h5 class="card-title bg-success">Informacion de la ubicacion ip</h5>
+          <div>
+            <p class="card-text bg-info"> Fecha del lugar: {{informacion.timezone.date}}</p>
+          </div>
+          <div>
+            <p class="card-text bg-info"> hora del lugar: {{informacion.timezone.time}}</p>
+          </div>
+          <div>
+            <p class="card-text bg-info"> zona horaria:  </p>
+          </div>
+          <a [href]="url" class="card-link">IR AL LUGAR</a>
+        </div>
+      </div>
+</div>
+<div class="row">
+    <button id="cor" class="button button-primary" (click)="obtenerCordenadas(informacion.latitude,informacion.longitude)" (click)="aviso==true" >obtener datos</button>
+</div>
+<div *ngIf="cordenadas != null" class="row">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Informacion de cordenadas</h5>
+          <div>
+            <p class="card-text"> Calle: {{cordenadas.Results[0].address}} </p>
+          </div>
+          <div>
+            <p class="card-text"> Numero de ciudad: {{cordenadas.Results[0].addressnumber}}</p>
+          </div>
+          <div>
+            <p class="card-text"> Provincia: {{cordenadas.Results[0].city}}</p>
+          </div>
+        </div>
+      </div>
+</div>
